@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Jogo da velha</title>
+</head>
+<body>
+    <header>
+        <img src="assets/logo.png" alt="Logo">
+        <h1>Jogo da velha</h1>
+    </header>
+    <div class="text">
+        <h2>Vamos começar!</h2>
+    </div>
+    <form>
+        <div id="input">
+            <div class="player">
+                <p>Digite o nome do primeiro jogador:</p>
+                <input type="text">
+            </div>
+            <h3>X</h3>
+            <div class="player">
+                <p>Digite o nome do segundo jogador:</p>
+                <input type="text">
+            </div>
+        </div>
+        <input type="submit" value="Jogar" id="submit">
+    </form>
+    <div class="text"">
+        <h2>Regras e informações:</h2>
+    </div>
+    <ul id="rules">
+        <li>O tabuleiro  é uma matriz  de três linhas por três colunas.</li>
+        <li>Cada jogador recebe uma marcação diferente, podendo ser um círculo (O) ou um xis (X).</li>
+        <li>Os jogadores jogam alternadamente. É feita uma marcação por vez em uma lacuna que esteja vazia.</li>
+        <li>Vence o jogador que conseguir formar primeiro uma linha com três símbolos iguais, seja ela na horizontal, vertical ou diagonal.</li>
+        <li>Quando há empate, o jogo “deu velha”.</li>
+    </ul>
+</body>
+</html>
