@@ -57,7 +57,7 @@ form {
 }
 
 .player {
-    height: 6vh;
+    height: 8vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -68,6 +68,7 @@ form {
     height: 2.5vh;
     border-radius: 5px;
     padding: 0 10px;
+    border: 2px solid #3173a1;
 }
 
 #submit {
@@ -109,11 +110,32 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    text-align: center;
 }
 
 #score h3 {
+    width: 3vw;
     color: #3173a1;
     font-size: x-large;
+}
+
+#p1-score {
+    width: 3vw;
+}
+
+#p2-score {
+    width: 3vw;
+}
+
+
+#p1{
+    width: 9vw;
+    text-align: end;
+}
+
+#p2{
+    width: 9vw;
+    text-align: initial;
 }
 
 #result {
@@ -126,6 +148,8 @@ form {
     justify-content: center;
     align-content: center;
     grid-template-columns: repeat(3, auto);
+    text-align: center;
+    line-height: 125px;
 }
 
 .grid-item {

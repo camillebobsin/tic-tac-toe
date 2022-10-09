@@ -17,16 +17,18 @@
     <div class="text">
         <h2>Vamos começar!</h2>
     </div>
-    <form>
+    <form name="form" onsubmit="return validateForm()" action="game.html">
         <div id="input">
             <div class="player">
                 <p>Digite o nome do primeiro jogador:</p>
-                <input type="text">
+                <input type="text" name="player1" id="player1-box">
+                <p id="message1"></p>
             </div>
             <h3>X</h3>
             <div class="player">
                 <p>Digite o nome do segundo jogador:</p>
-                <input type="text">
+                <input type="text" name="player2" id="player2-box">
+                <p id="message2"></p>
             </div>
         </div>
         <input type="submit" value="Jogar" id="submit">
@@ -41,5 +43,6 @@
         <li>Vence o jogador que conseguir formar primeiro uma linha com três símbolos iguais, seja ela na horizontal, vertical ou diagonal.</li>
         <li>Quando há empate, o jogo “deu velha”.</li>
     </ul>
+    <script src="js/index.js"></script>
 </body>
 </html>
