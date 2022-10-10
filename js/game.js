@@ -11,7 +11,7 @@ p2.innerHTML = localStorage.getItem("player2");
 let result = document.getElementById("result");
 let reset = document.getElementById("reset");
 const cellElements = document.querySelectorAll("[data-cell]");
-let xTurn = true; 
+let xTurn = true;
 let table = ['', '', '', '', '', '', '', '', ''];
 let win = 0;
 let winner = '';
@@ -38,6 +38,7 @@ function handleClick(e) {
         if (cell.innerHTML == '') {
             cell.innerHTML = xTurn ? 'X' : 'O';
             cell.style.color = xTurn ? "#6331a1" : "#a1318e";
+            // cell.style.color = "black";
             if (checkWin(cell.id, cell.innerHTML) == 1) {
                 result.innerHTML = winner == 'X' ? localStorage.getItem("player1") + " ganhou!" : localStorage.getItem("player2") + " ganhou!";
                 if (winner == 'X') {
@@ -47,7 +48,7 @@ function handleClick(e) {
                     p2Score.innerHTML = parseInt(p2Score.innerHTML) + 1
                 }
                 winner = '';
-                
+
             }
             else if (checkWin(cell.id, cell.innerHTML) == 2) {
                 result.innerHTML = "Deu velha!"
@@ -63,39 +64,59 @@ function handleClick(e) {
 }
 
 function checkWin(id, letter) {
-    let draw = 1;
+    let tie = 1;
     index = parseInt(id[1]) - 1;
     table[index] = letter;
     for (let line = 0; line < 9; line += 3) {
-        if (table[line] == table[line+1] && table[line] == table[line+2] && table[line] != '') {
+        if (table[line] == table[line + 1] && table[line] == table[line + 2] && table[line] != '') {
             winner = table[line];
+            for (let i = 0; i < 9; i++) {
+                if (table[i] != '' && i != line && i != line + 1 && i != line + 2) {
+                    cellElements[i].style.color = "#847F83";
+                }
+            }
             win = 1;
             return win;
         }
     }
     for (let column = 0; column < 3; column++) {
-        if (table[column] == table[column+3] && table[column] == table[column+6] && table[column] != '') {
+        if (table[column] == table[column + 3] && table[column] == table[column + 6] && table[column] != '') {
             winner = table[column];
+            for (let i = 0; i < 9; i++) {
+                if (table[i] != '' && i != column && i != column + 3 && i != column + 6) {
+                    cellElements[i].style.color = "#847F83";
+                }
+            }
             win = 1;
             return win;
         }
     }
     if (table[0] == table[4] && table[0] == table[8] && table[0] != '') {
         winner = table[0];
+        for (let i = 0; i < 9; i++) {
+            if (table[i] != '' && i != 0 && i != 4 && i != 8) {
+                cellElements[i].style.color = "#847F83";
+            }
+        }
         win = 1;
         return win;
     }
     if (table[2] == table[4] && table[2] == table[6] && table[2] != '') {
         winner = table[2];
+        for (let i = 0; i < 9; i++) {
+            if (table[i] != '' && i != 2 && i != 4 && i != 6) {
+                cellElements[i].style.color = "#847F83";
+            }
+        }
         win = 1;
         return win;
     }
     for (let i = 0; i < 9; i++) {
         if (table[i] == '') {
-            draw = 0;
+            tie = 0;
         }
     }
-    if (draw) {
+    if (tie) {
         win = 2;
         return win;
     }
